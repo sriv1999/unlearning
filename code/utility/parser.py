@@ -25,7 +25,7 @@ def parse_args():
                         help='Interval of evaluation.')
     parser.add_argument('--is_norm', type=int, default=1,
                     help='Interval of evaluation.')
-    parser.add_argument('--epoch', type=int, default=100,
+    parser.add_argument('--epoch', type=int, default=20,
                         help='Number of epoch.')
     parser.add_argument('--epoch_agg', type=int, default=50,
                         help='Number of epoch_agg.')
@@ -76,11 +76,14 @@ def parse_args():
     parser.add_argument('--dropout', type=float, default=0.7, #WMF
                         help='dropout keep_prob')
 
-    parser.add_argument('--part_type', type=int, default=1,
+    parser.add_argument('--part_type', type=int, default=3,
                         help='0: whole data, 1: interaction_based, 2: user_based, 3: random')
 
     parser.add_argument('--part_num', type=int, default=10,
                         help='partition number')
+
+    parser.add_argument('--partitions', nargs='?', default='[5,6]',
+                        help='partitions chosen')
 
     parser.add_argument('--part_T', type=int, default=50,
                         help='iteration for partition')

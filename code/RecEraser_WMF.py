@@ -51,7 +51,7 @@ class RecEraser_WMF(object):
 
         all_weights['user_embedding'] = tf.Variable(initializer([self.n_users, self.num_local, self.emb_dim]),
                                                     name='user_embedding')
-        all_weights['item_embedding'] = tf.Variable(initializer([self.n_items, self.num_local, self.emb_dim]),
+        all_weights['item_embedding'] = tf.Variable(initializer([self.n_items+1, self.num_local, self.emb_dim]),
                                                     name='item_embedding')
         # user attention
         all_weights['WA'] = tf.Variable(
@@ -227,7 +227,7 @@ if __name__ == '__main__':
     else:
         sess.run(tf.compat.v1.global_variables_initializer())
 
-        for i in range(args.part_num):
+        for i in eval(args.partitions):
             cur_best_pre_0 = 0.
             stopping_step = 0
             user_train1, item1 = get_train_instances(local_train_lable[i])
