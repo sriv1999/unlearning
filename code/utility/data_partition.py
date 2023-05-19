@@ -16,9 +16,9 @@ def E_score2(a,b):
 # Interaction-based Balanced Partition
 def data_partition_1(train_items,k,T):
 
-    with open(args.data_path + args.dataset + '/user_pretrain.pk', 'rb') as f:
+    with open(args.data_path + args.dataset + '/user_pretrain_new.pk', 'rb') as f:
         uidW = pickle.load(f, encoding='latin1')
-    with open(args.data_path + args.dataset + '/item_pretrain.pk', 'rb') as f:
+    with open(args.data_path + args.dataset + '/item_pretrain_new.pk', 'rb') as f:
         iidW = pickle.load(f, encoding='latin1')
 
     # get_data_interactions_1
@@ -113,7 +113,7 @@ def data_partition_1(train_items,k,T):
 def data_partition_2(train_items,k,T):
     data = train_items
 
-    with open(args.data_path + args.dataset + '/user_pretrain.pk', 'r') as f:
+    with open(args.data_path + args.dataset + '/user_pretrain_new.pk', 'r') as f:
         uidW = pickle.load(f)
 
     # get_data_interactions_1
